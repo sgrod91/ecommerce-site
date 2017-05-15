@@ -15,11 +15,12 @@ class ProductPage extends React.Component {
   }
    render() {
     return(
-      <div><ul>
-        <li>{this.props.product && this.props.product.name}</li>
-        <li>{this.props.product && this.props.product.price}</li>
-        <li>{this.props.product && this.props.product.description}</li>
-      </ul>
+      <div>
+        <h1>{this.props.product && this.props.product.name}</h1>
+        {this.props.product && <img src={this.props.product.image_path} width="300"/>}<br/><br/>
+        ${this.props.product && this.props.product.price}<br/><br/>
+        {this.props.product && this.props.product.description}<br/><br/>
+
       <button onClick={() => this.props.addToCart(this.props.product.id)}>Add to cart</button>
       </div>
     )

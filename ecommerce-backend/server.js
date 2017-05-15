@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const express = require('express');
 const Promise = require('bluebird');
 const pgp = require('pg-promise')({
@@ -84,7 +85,8 @@ app.post('/api/user/signup', (req, resp, next) => {
       .then(data => resp.json(data))
       .catch(next);
   } else {
-    resp.json('Passwords do not match!');
+    resp.status(400);
+    resp.json('Passwords do not match! Try again');
   }
 });
 

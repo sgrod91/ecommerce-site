@@ -3,7 +3,16 @@ import {hashHistory} from 'react-router';
 
 export function changeState(value, propName) {
   return {
-    type: 'change-state', value: value, propName: propName
+    type: 'change-state',
+    value: value,
+    propName: propName
+  };
+}
+
+export function error(resp) {
+  return {
+    type: 'error',
+    error: resp.responseText
   };
 }
 
@@ -25,7 +34,7 @@ export function submitForm(username, email, first_name, last_name, password, con
         dispatch({type: 'success'});
         hashHistory.push('/login')
       })
-      .catch(error => dispatch({type: 'error'}));
+      .catch(resp => dispatch(error(resp)));
   };
   return asyncAction;
 }

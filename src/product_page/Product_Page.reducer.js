@@ -4,6 +4,7 @@ const INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, action) {
 if (action.type === 'load-single-product') {
+  console.log(action.data);
   return Object.assign({}, state, {
     product: action.data
     });

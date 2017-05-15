@@ -14,6 +14,7 @@ class Home extends React.Component {
         {this.props.products.map(item =>
           <ul key={item.id}>
             <li>{item.name}</li>
+            {this.props.products && <img src={this.props.products.image_path} width="300"/>}
           <li><Link to={"/product/" + item.id}> {item.name} Page</Link></li>
           </ul>
           )}

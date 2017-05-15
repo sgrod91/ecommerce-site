@@ -4,10 +4,6 @@ import * as actions from './Signup.actions';
 
 class Signup extends React.Component {
   render() {
-    let noMatch;
-    if(this.props.password !== this.props.confirm) {
-      noMatch = (<h4>Passwords do not match</h4>)
-    }
     return(
       <div>
         <form>
@@ -19,7 +15,8 @@ class Signup extends React.Component {
           <input onChange={(event) => this.props.changeState(event.target.value, 'confirm')} type="password" placeholder="confirm password" value={this.props.confirm}/>
           <button onClick={() => this.props.submitForm(this.props.username, this.props.email, this.props.first_name, this.props.last_name, this.props.password, this.props.confirm)}> Submit </button>
         </form>
-        {noMatch}
+        <br/>
+        {this.props.errorMessage}
       </div>
     );
   }
